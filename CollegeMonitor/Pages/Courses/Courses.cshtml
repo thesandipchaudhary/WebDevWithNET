@@ -1,0 +1,39 @@
+@page "/Courses"
+@model CoursesModel
+<div class="d-flex justify-content-between">
+<h2>List of all courses</h2>
+<a href="/courses/create" class="btn btn-success"><i class="bi bi-plus-square-fill"></i>New Course</a>
+</div>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Textbook</th>
+      <th scope="col">Credit Hours</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @{
+      int counter=1;
+    }
+    @foreach(var course in Model.Courses)
+    {
+        <tr>
+            <th scope="row">@(counter++)</th>
+            <td>@course.Name</td>
+            <td>@course.TextBook</td>
+            <td>@course.CreditHrs</td>
+            <td>
+               <a class="btn btn-primary" href="/courses/edit/@course.Id"><i class="bi bi-pencil-square"></i></a>
+              <a class="btn btn-danger" href="/courses/delete/@course.Id"><i class="bi bi-trash"></i></a>
+            </td>
+                       
+        </tr>   
+    }    
+  </tbody>
+</table>

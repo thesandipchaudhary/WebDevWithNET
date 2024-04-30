@@ -1,0 +1,14 @@
+@page "/Courses/delete/{id:int}"
+@model DeleteCourseModel
+<h2>Are you sure to delete this course?'@Model.Course.Name'</h2>
+
+<form method="post">
+  <input type="hidden" asp-for="Course.Id" />
+  
+  
+  <button type="submit" class="btn btn-danger">Delete</button>
+  <a  class="btn btn-primary" href="/courses">Cancel</a>
+</form>
+
+
+
