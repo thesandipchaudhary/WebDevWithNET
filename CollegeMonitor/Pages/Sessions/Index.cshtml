@@ -6,10 +6,13 @@
     <a asp-page="Create" class="btn btn-primary">Create New</a>
 </p>
 <table class="table">
-    <thead>
+   <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Session[0].Title)
+            </th>
+            <th>
+                Course
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Session[0].Details)
@@ -23,21 +26,25 @@
             <th></th>
         </tr>
     </thead>
+     
     <tbody>
 @foreach (var item in Model.Session) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Details)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Start)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DurationInHours)
-            </td>
+         <td>
+                @item.Title
+                </td>
+                <td>
+                    @(item.Course?.Name ?? "N/A")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DurationInHours)
+                </td>
             <td>
                 <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id"> <i class="bi bi-pencil-square"></i></a>
                 <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id"> <i class="bi bi-ticket-detailed"></i></a>

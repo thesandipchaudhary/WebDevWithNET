@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Session
 {
      public int Id { get; set; }
@@ -5,4 +7,7 @@ public class Session
     public string? Details { get; set; }
     public DateTime Start { get; set; }
     public float DurationInHours { get; set; }
+
+    public int? CourseId { get; set; }
+    public Course? Course { get; set; }
 }
